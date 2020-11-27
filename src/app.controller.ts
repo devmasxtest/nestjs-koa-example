@@ -8,11 +8,16 @@ export class AppController {
   constructor(private appService: AppService) {}
 
   // fetch extra data from previews koa context
-  @Get('/')
+  @Get('/api')
   getHello(@KoaContext() ctx: Context) {
     return {
       success: true,
       extraData: ctx.extraData,
     };
+  }
+
+  @Get('/')
+  IndexPage(@KoaContext() ctx: Context) {
+    return ctx.render('index', { username: ctx.extraData?.user?.username });
   }
 }
