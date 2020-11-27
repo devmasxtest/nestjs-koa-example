@@ -4,7 +4,7 @@ import * as Koa from 'koa';
 import { AppModule } from './app.module';
 
 async function koaMiddleware(ctx, next) {
-  console.log(ctx.request.originalUrl);
+  console.log('originalUrl', ctx.request.originalUrl);
   await next();
 }
 
